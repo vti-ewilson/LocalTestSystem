@@ -1,6 +1,6 @@
-[submodule "Common/VTI-Library-PLCInterface"]
-	path = Common/VTI-Library-PLCInterface
-	url = git@github.com:vacuumtechnology/VTI-Library-PLCInterface
 [submodule "Common/VTI-Library-WindowsControls"]
 	path = Common/VTI-Library-WindowsControls
 	url = git@github.com:vacuumtechnology/VTI-Library-WindowsControls
+[submodule "Common/VTI-Library-PLCInterface"]
+	path = Common/VTI-Library-PLCInterface
+	url = git@github.com:vacuumtechnology/VTI-Library-PLCInterface

@@ -1,4 +1,0 @@
-OPTIONAL:
-To display a signal along with a CycleStep's prompt, in the CycleStep's started event, add:
-
-step.SignalsToDisplay.Add(IO.Signals.BlueManifoldPressure);

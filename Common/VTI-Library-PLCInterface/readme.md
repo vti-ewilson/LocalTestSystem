@@ -1,1 +1,0 @@
-# VTI PLC Interface Library
