@@ -1,0 +1,26 @@
+USE [VtiData]
+GO
+
+/****** Object:  Table [dbo].[ModelParameters]    Script Date: 2/6/2023 9:51:56 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ModelParameters](
+	[ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[ModelNo] [nvarchar](50) NULL,
+	[ParameterID] [nvarchar](50) NULL,
+	[ProcessValue] [nvarchar](255) NULL,
+	[LastModifiedBy] [nvarchar](50) NULL,
+	[LastModified] [datetime] NULL,
+	[SystemType] [nvarchar](200) NULL,
+ CONSTRAINT [uq_ModelParameters] UNIQUE NONCLUSTERED 
+(
+	[ModelNo] ASC,
+	[SystemType] ASC,
+	[ParameterID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="MccConfig">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AnalogBoards" maxOccurs="1" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AnalogBoard">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="BoardNum" type="xs:integer" />
+                    <xs:element name="NumberOfBits" type="xs:integer" default="12" />
+                    <xs:element name="AnalogInputs" maxOccurs="1" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="AnalogChannel">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Name" type="xs:string" />
+                                <xs:element name="Channel" type="xs:unsignedByte" />
+                                <xs:element name="NumberOfSamples" type="xs:integer" />
+                                <xs:element name="NumberOfMovingAverages" type="xs:integer" />
+                                <xs:element name="Range" type="Range" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="AnalogOutputs" maxOccurs="1" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="AnalogChannel">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Name" type="xs:string" />
+                                <xs:element name="Channel" type="xs:unsignedByte" />
+                                <xs:element name="Range" type="Range" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DigitalBoards" maxOccurs="1" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DigitalBoard">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="BoardNum" type="xs:integer" />
+                    <xs:element name="InvertedLogic" type="xs:boolean" default="true">
+                    </xs:element>
+                    <xs:element name="DigitalPorts">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="DigitalPort">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="DigitalPortType" type="DigitalPortType" />
+                                <xs:element name="DigitalPortDirection" type="DigitalPortDirection" />
+                                <xs:element name="DigitalPortBits">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element maxOccurs="unbounded" name="DigitalPortBit">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="Name" type="xs:string" />
+                                            <xs:element name="Description" type="xs:string" />
+                                            <xs:element name="Bit" type="xs:unsignedByte" />
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="DigitalPortDirection">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DigitalOut" />
+      <xs:enumeration value="DigitalIn" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DigitalPortType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AuxPort" />
+      <xs:enumeration value="FirstPortA" />
+      <xs:enumeration value="FirstPortB" />
+      <xs:enumeration value="FirstPortCL" />
+      <xs:enumeration value="FirstPortCH" />
+      <xs:enumeration value="SecondPortA" />
+      <xs:enumeration value="SecondPortB" />
+      <xs:enumeration value="SecondPortCL" />
+      <xs:enumeration value="SecondPortCH" />
+      <xs:enumeration value="ThirdPortA" />
+      <xs:enumeration value="ThirdPortB" />
+      <xs:enumeration value="ThirdPortCL" />
+      <xs:enumeration value="ThirdPortCH" />
+      <xs:enumeration value="FourthPortA" />
+      <xs:enumeration value="FourthPortB" />
+      <xs:enumeration value="FourthPortCL" />
+      <xs:enumeration value="FourthPortCH" />
+      <xs:enumeration value="FifthPortA" />
+      <xs:enumeration value="FifthPortB" />
+      <xs:enumeration value="FifthPortCL" />
+      <xs:enumeration value="FifthPortCH" />
+      <xs:enumeration value="SixthPortA" />
+      <xs:enumeration value="SixthPortB" />
+      <xs:enumeration value="SixthPortCL" />
+      <xs:enumeration value="SixthPortCH" />
+      <xs:enumeration value="SeventhPortA" />
+      <xs:enumeration value="SeventhPortB" />
+      <xs:enumeration value="SeventhPortCL" />
+      <xs:enumeration value="SeventhPortCH" />
+      <xs:enumeration value="EighthPortA" />
+      <xs:enumeration value="EighthPortB" />
+      <xs:enumeration value="EighthPortCL" />
+      <xs:enumeration value="EighthPortCH" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Range">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotUsed" />
+      <xs:enumeration value="Bip5Volts" />
+      <xs:enumeration value="Bip10Volts" />
+      <xs:enumeration value="Bip2Pt5Volts" />
+      <xs:enumeration value="Bip1Pt25Volts" />
+      <xs:enumeration value="Bip1Volts" />
+      <xs:enumeration value="BipPt625Volts" />
+      <xs:enumeration value="BipPt5Volts" />
+      <xs:enumeration value="BipPt1Volts" />
+      <xs:enumeration value="BipPt05Volts" />
+      <xs:enumeration value="BipPt01Volts" />
+      <xs:enumeration value="BipPt005Volts" />
+      <xs:enumeration value="Bip1Pt67Volts" />
+      <xs:enumeration value="BipPt25Volts" />
+      <xs:enumeration value="BipPt2Volts" />
+      <xs:enumeration value="Bip2Volts" />
+      <xs:enumeration value="Bip20Volts" />
+      <xs:enumeration value="Bip4Volts" />
+      <xs:enumeration value="Uni10Volts" />
+      <xs:enumeration value="Uni5Volts" />
+      <xs:enumeration value="Uni2Pt5Volts" />
+      <xs:enumeration value="Uni2Volts" />
+      <xs:enumeration value="Uni1Pt25Volts" />
+      <xs:enumeration value="Uni1Volts" />
+      <xs:enumeration value="UniPt1Volts" />
+      <xs:enumeration value="UniPt01Volts" />
+      <xs:enumeration value="UniPt02Volts" />
+      <xs:enumeration value="Uni1Pt67Volts" />
+      <xs:enumeration value="UniPt5Volts" />
+      <xs:enumeration value="UniPt25Volts" />
+      <xs:enumeration value="UniPt2Volts" />
+      <xs:enumeration value="UniPt05Volts" />
+      <xs:enumeration value="Uni4Volts" />
+      <xs:enumeration value="Ma4To20" />
+      <xs:enumeration value="Ma2To10" />
+      <xs:enumeration value="Ma1To5" />
+      <xs:enumeration value="MaPt5To2Pt5" />
+      <xs:enumeration value="Ma0To20" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

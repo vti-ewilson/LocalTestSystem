@@ -1,0 +1,148 @@
+ControlSettings.cs:
+
+        #region LastRemoteModelsPullTime : StringParameter
+        [UserScopedSetting()]
+        [XmlElement("StringParameter")]
+        [DefaultSettingValue(@"
+            <StringParameter>
+                <DisplayName>Last Remote Models Pull Time</DisplayName>
+                <ProcessValue>2022/12/30 8:36 AM</ProcessValue>
+                <ToolTip>Indicates the last time the local models and model parameters were successfully overwritten by the values stored in the remote database.</ToolTip>
+            </StringParameter>
+        ")]
+        public StringParameter LastRemoteModelsPullTime
+        {
+            get
+            {
+                return ((StringParameter)this["LastRemoteModelsPullTime"]);
+            }
+            set
+            {
+                this["LastRemoteModelsPullTime"] = (StringParameter)value;
+            }
+        }
+        #endregion
+
+        #region SystemTypeForModelsSync : StringParameter
+        [UserScopedSetting()]
+        [XmlElement("StringParameter")]
+        [DefaultSettingValue(@"
+            <StringParameter>
+                <DisplayName>System Type For Models Sync</DisplayName>
+                <ProcessValue>Coil_Repair_Station</ProcessValue>
+                <ToolTip>This name will be used to sync models and model parameters to and from the remote database. All stations with this System Type value will have the same models and model parameter values after syncing with the remote database.</ToolTip>
+            </StringParameter>
+        ")]
+        public StringParameter SystemTypeForModelsSync
+        {
+            get
+            {
+                return ((StringParameter)this["SystemTypeForModelsSync"]);
+            }
+            set
+            {
+                this["SystemTypeForModelsSync"] = (StringParameter)value;
+            }
+        }
+        #endregion
+		
+ModeSettings.cs:
+
+        #region AutoUpdateModelsFromRemoteDatabase : BooleanParameter
+        [UserScopedSetting()]
+        [XmlElement("BooleanParameter")]
+        [DefaultSettingValue(@"
+            <BooleanParameter>
+                <DisplayName>Auto Update Models From Remote Database</DisplayName>
+                <ProcessValue>false</ProcessValue>
+                <ToolTip>The system will sync models and model parameters to and from the remote database. See associated parameters 'System Type For Models Sync' and 'Remote Database Models Sync Interval'.</ToolTip>
+            </BooleanParameter>
+        ")]
+        public BooleanParameter AutoUpdateModelsFromRemoteDatabase
+        {
+            get
+            {
+                return ((BooleanParameter)this["AutoUpdateModelsFromRemoteDatabase"]);
+            }
+            set
+            {
+                this["AutoUpdateModelsFromRemoteDatabase"] = (BooleanParameter)value;
+            }
+        }
+        #endregion
+
+TimeSettings.cs:
+
+        #region RemoteDatabaseModelsPullInterval : TimeDelayParameter
+        [UserScopedSetting()]
+        [XmlElement("TimeDelayParameter")]
+        [DefaultSettingValue(@"
+            <TimeDelayParameter>
+                <DisplayName>Remote Database Models Pull Interval</DisplayName>
+                <ProcessValue>10</ProcessValue>
+                <MinValue>0</MinValue>
+                <MaxValue>96000</MaxValue>
+                <SmallStep>0.1</SmallStep>
+                <LargeStep>10</LargeStep>
+                <Units>Minutes</Units>
+                <ToolTip>The time interval when the system will overwrite the local models and model parameters with those from the remote database. The system must be idle for the local models to be updated.</ToolTip>
+            </TimeDelayParameter>
+        ")]
+        public TimeDelayParameter RemoteDatabaseModelsPullInterval
+        {
+            get
+            {
+                return ((TimeDelayParameter)this["RemoteDatabaseModelsPullInterval"]);
+            }
+            set
+            {
+                this["RemoteDatabaseModelsPullInterval"] = (TimeDelayParameter)value;
+            }
+        }
+        #endregion RemoteDatabaseModelsPullInterval : TimeDelayParameter
+		
+ManualCommands.cs:
+
+        [ManualCommand("PUSH LOCAL MODELS TO REMOTE DB", true, CommandPermissionType.CheckPermissionWithWarning)]
+        public virtual void PushLocalModelsToRemoteDatabase()
+        {
+            VTIWindowsControlLibrary.VtiLib.PushLocalModelsToRemoteDatabase(Config.Control.SystemTypeForModelsSync.ProcessValue);
+        }
+
+        [ManualCommand("PULL MODELS FROM REMOTE DB", true, CommandPermissionType.CheckPermissionWithWarning)]
+        public virtual void PullModelsFromRemoteDatabase()
+        {
+            if (VTIWindowsControlLibrary.VtiLib.PullModelsFromRemoteDatabase(Config.Control.SystemTypeForModelsSync.ProcessValue))
+            {
+                Config.Control.LastRemoteModelsPullTime.ProcessValue = DateTime.Now.ToString("yyyy/MM/dd h:mm tt");
+                Config.Control.Save();
+            }
+        }
+		
+Machine.cs -> InitializeParameters():
+
+			Config.Control.LastRemoteModelsPullTime.Visible = false;
+
+Idle_Started():
+
+            if (Config.Mode.AutoUpdateModelsFromRemoteDatabase.ProcessValue)
+            {
+                Machine.Prompt[port].AppendText("Last Successful Remote Models Pull Time: " + Config.Control.LastRemoteModelsPullTime.ProcessValue);
+                Machine.Prompt[port].AppendText(Environment.NewLine);
+            }
+			
+Idle_Tick():
+
+            if (Config.Mode.AutoUpdateModelsFromRemoteDatabase.ProcessValue && DateTime.TryParse(Config.Control.LastRemoteModelsPullTime.ProcessValue, out DateTime LastModelsPullTime))
+            {
+                if ((DateTime.Now - LastModelsPullTime).TotalMinutes > Config.Time.RemoteDatabaseModelsPullInterval.ProcessValue)
+                {
+                    Machine.ManualCommands.PullModelsFromRemoteDatabase();
+                }
+            }
+
+** IF THE REMOTE DATABASE DOES NOT HAVE dbo.Models or dbo.ModelParameters, EXECUTE THE SCRIPT(S) IN vtiwindowscontrollibrary\Data\ModelsTableScript_RemoteDB.sql AND vtiwindowscontrollibrary\Data\ModelParametersTableScript_RemoteDB.sql **
+
+** ENABLE "Remote VtiData Connection Enable" IN COMMON MODE PARAMETERS AND DEFINE CONNECTION STRING "Remote Connection String VtiData" IN COMMON CONTROL PARAMETERS **
+
+** RESTART VTI APP, THEN ENABLE "Sync Models With Remote Database" in COMMON MODE PARAMETERS, DEFINE "System Type for Models Sync" PARAMETER IN COMMON CONTROL PARAMETERS, and set "Remote Database Models Sync Interval" IN COMMON TIME PARAMETERS. **

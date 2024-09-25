@@ -1,0 +1,95 @@
+Visual Studio Error Message:
+CS0535: 'Machine' does not implement interface member 'IMachine.ConfigChanged(bool)'
+
+In your Classes\IOClasses\IO.cs file, add:
+
+	using System.Linq;
+	
+	under your method "protected override void InitializeInstance() { ... }"
+
+	add a new method:
+	
+	public void RestartSerialInDevices()
+	{
+		var _SerialInList = _SerialIn.GetType()
+				 .GetFields()
+				 .Select(field => field.GetValue(_SerialIn))
+				 .Where(x => x != null)
+				 .OfType<VTIWindowsControlLibrary.Classes.IO.SerialIO.SerialIOBase>()
+				 .ToList();
+		if (_SerialInList != null)
+		{
+			foreach (VTIWindowsControlLibrary.Classes.IO.SerialIO.SerialIOBase device in _SerialInList)
+			{
+				device.Start();
+			}
+		}
+	}
+
+
+In your Classes\IOClasses\SerialInputs.cs file:
+	
+	In "public class SerialInputs", add:
+	
+	public BarcodeScanner Scanner;
+	
+	In "public SerialInputs()", add:
+	
+	Scanner = new BarcodeScanner
+	{
+		SerialPortParameter = Config.Control.ScannerPort,
+	};
+	Scanner.SerialPort.ReadTimeout = 1000;
+	Scanner.Start();	
+	
+
+In your Classes\Machine.cs file:
+	
+	Add "private bool useReadExistingForScanner;"
+	
+	Comment-out/remove the lines: 
+	
+	"protected SerialPort _BarcodeScanner;" 
+	and
+	"public static SerialPort BarcodeScanner { get { return Instance._BarcodeScanner; } }"
+	
+	In your "InitializeBarcodeScanner()" method, comment-out/remove everything and add two lines:
+	
+	SplashScreen.Message = "Initializing Barcode Scanner...";
+	IO.SerialIn.Scanner.SerialPort.DataReceived += BarcodeScanner_DataReceived;
+	
+	In "BarcodeScanner_DataReceived(object sender, SerialDataReceivedEventArgs e)":
+	
+	replace: "scannerText += _BarcodeScanner.ReadExisting();"
+	with: 
+	
+	if (useReadExistingForScanner)
+	{
+		scannerText = IO.SerialIn.Scanner.SerialPort.ReadExisting();
+	}
+	else
+	{
+		try
+		{
+			scannerText = IO.SerialIn.Scanner.SerialPort.ReadLine();
+			useReadExistingForScanner = false;
+		}
+		catch
+		{
+			scannerText = IO.SerialIn.Scanner.SerialPort.ReadExisting();
+			useReadExistingForScanner = true;
+		}
+	}
+	
+	
+	replace: "public virtual void ConfigChanged()"
+	with: "public virtual void ConfigChanged(bool serialParamsChanged)"
+	
+	and within your new "ConfigChanged(bool serialParamsChanged) {}", in the last part of the method, add:
+	
+	    if (serialParamsChanged)
+		{
+			IO.Instance.RestartSerialInDevices();
+		}
+
+	If there is code related to the barcode scanner in ConfigChanged(), remove it.

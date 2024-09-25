@@ -1,0 +1,9 @@
+Replace:
+
+NumericParameter[] PramtoShow = new NumericParameter[2] { model.RORPressureSetpoint, Config.Control.RORCounter };
+step.ParametersToDisplay = PramtoShow;
+
+With:
+
+step.ParametersToDisplay.Add(model.RORPressureSetpoint);
+step.ParametersToDisplay.Add(Config.Control.RORCounter);

@@ -1,0 +1,71 @@
+In client-side project:
+
+Replace:
+System.Diagnostics.EventLogEntryType.Information
+With:
+VTIWindowsControlLibrary.Classes.SystemDiagnostics.EventLogEntryType.Information
+
+Program.cs
+
+                // 2/1/17 remove windows event viewer tas per mdb
+                VtiEvent.Log.Level = VTIWindowsControlLibrary.Classes.SystemDiagnostics.TraceLevel.Verbose; // Verbose until the config can be read
+                //VtiEvent.Log.Level = System.Diagnostics.TraceLevel.Off;
+ 
+Manualcommands.cs
+
+		[ManualCommand("VIEW EVENT VIEWER", false, CommandPermissionType.CheckPermissionWithWarning)]
+        [ManualCommand("VIEW SYSTEM LOG", false, CommandPermissionType.CheckPermissionWithWarning)]
+        public virtual void ViewEventViewer()
+        {
+            System.Diagnostics.Process.Start("notepad.exe", VtiEvent.Log.LogFileName); 
+        }
+
+ModeSettings.cs
+
+//        #region Trace_Level : EnumParameter<TraceLevel>
+//        [UserScopedSetting()]
+//        [XmlElement("EnumParameter<TraceLevel>")]
+//        [DefaultSettingValue(@"
+//			<EnumParameterOfTraceLevel xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""
+//				xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+//                <DisplayName>Trace Level</DisplayName>
+//				<ProcessValue>Info</ProcessValue>
+//				<ToolTip>Determines the level of detail created in the diagnostic output trace for the system.  Default level is Info.  Please change only at the request of VTI.</ToolTip>
+//			</EnumParameterOfTraceLevel>
+//        ")]
+//        public EnumParameter<TraceLevel> Trace_Level
+//        {
+//            get
+//            {
+//                return ((EnumParameter<TraceLevel>)this["Trace_Level"]);
+//            }
+//            set
+//            {
+//                this["Trace_Level"] = (EnumParameter<TraceLevel>)value;
+//            }
+//        }
+//        #endregion
+
+        #region Trace_Level : EnumParameter<TraceLevel>
+        [UserScopedSetting()]
+        [XmlElement("EnumParameter<TraceLevel>")]
+        [DefaultSettingValue(@"
+			<EnumParameterOfTraceLevel xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""
+				xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+                <DisplayName>Trace Level</DisplayName>
+				<ProcessValue>Info</ProcessValue>
+				<ToolTip>Determines the level of detail created in the diagnostic output trace for the system.  Default level is Info.  Please change only at the request of VTI.</ToolTip>
+			</EnumParameterOfTraceLevel>
+        ")]
+        public EnumParameter<VTIWindowsControlLibrary.Classes.SystemDiagnostics.TraceLevel> Trace_Level
+        {
+            get
+            {
+                return ((EnumParameter<VTIWindowsControlLibrary.Classes.SystemDiagnostics.TraceLevel>)this["Trace_Level"]);
+            }
+            set
+            {
+                this["Trace_Level"] = (EnumParameter<VTIWindowsControlLibrary.Classes.SystemDiagnostics.TraceLevel>)value;
+            }
+        }
+        #endregion

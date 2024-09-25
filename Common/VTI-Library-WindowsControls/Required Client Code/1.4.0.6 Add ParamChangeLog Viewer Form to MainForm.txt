@@ -1,0 +1,24 @@
+1. Double-click on your MainForm.cs file in Solution Explorer. This should display your MainForm in designer mode.
+2. At the top of the form, in the menu strip, click on "View". At the bottom of the View menu, there should be an empty box with the text "Type Here".
+3. In that box, type in "Parameter Change Log" (without quotes) and press enter to create the new ToolStripMenuItem.
+4. Double-click on your new "Parameter Change Log" ToolStripMenuItem to create a click event, or alternatively:
+	a. Right-click on your new "Parameter Change Log" ToolStripMenuItem and select "Properties".
+	b. Make sure the name of your new ToolStripMenuItem is "parameterChangeLogToolStripMenuItem" (without quotes).
+	c. Make sure the text property is set to "Parameter Change Log" (without quotes).
+	d. In the same properties window, click on the lightning bolt icon (Events button). 
+	e. Double-click on the empty cell next to the "Click" event to create a click event.
+5. Edit your click event to be:
+
+	private void parameterChangeLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Machine.ManualCommands.ViewParamChangeLog();
+        }
+		
+6. In your ManualCommands.cs, add:
+
+	[ManualCommand("VIEW PARAMETER CHANGE LOG", false, CommandPermissionType.CheckPermissionWithWarning)]
+        public virtual void ViewParamChangeLog()
+        {
+            VTIWindowsControlLibrary.Classes.ClientForms.ParamChangeLog.Show();
+        }
+		

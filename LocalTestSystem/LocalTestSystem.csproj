@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9BF39FA5-E1E9-4031-88C9-E29B7BEE21A1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LocalTestSystem</RootNamespace>
+    <AssemblyName>VTI</AssemblyName>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <ApplicationIcon>Resources\Vtilogo.ico</ApplicationIcon>
+    <StartupObject>LocalTestSystem.Program</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>http://localhost/SmartStationRecAndCharge/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Quick Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Quick Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Configuration\ControlSettings.cs" />
+    <Compile Include="Classes\Configuration\FlowSettings.cs" />
+    <Compile Include="Classes\Configuration\IOSettings.cs" />
+    <Compile Include="Classes\Configuration\ModelSettings.cs" />
+    <Compile Include="Classes\Configuration\ModeSettings.cs" />
+    <Compile Include="Classes\Configuration\PressureSettings.cs" />
+    <Compile Include="Classes\Configuration\TimeSettings.cs" />
+    <Compile Include="Classes\CycleSteps.cs" />
+    <Compile Include="Classes\IOClasses\AnalogInputs.cs" />
+    <Compile Include="Classes\IOClasses\AnalogOutputs.cs" />
+    <Compile Include="Classes\IOClasses\AnalogSignalConverters.cs" />
+    <Compile Include="Classes\IOClasses\AnalogSignals.cs" />
+    <Compile Include="Classes\IOClasses\DigitalInputs.cs" />
+    <Compile Include="Classes\IOClasses\DigitalOutputs.cs" />
+    <Compile Include="Classes\IOClasses\EthernetInputs.cs" />
+    <Compile Include="Classes\IOClasses\IO.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\Configuration\Config.cs">
+    </Compile>
+    <Compile Include="Classes\IOClasses\SerialInputs.cs" />
+    <Compile Include="Classes\MyStaticVariables.cs" />
+    <Compile Include="Classes\TestInfo.cs" />
+    <Compile Include="Enums\DatabaseOptions.cs" />
+    <Compile Include="Enums\Languages.cs" />
+    <Compile Include="Enums\ModelScanOptions.cs" />
+    <Compile Include="Enums\Ports.cs" />
+    <Compile Include="Enums\TestModes.cs" />
+    <Compile Include="Forms\frmCycleStepsInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCycleStepsInformation.Designer.cs">
+      <DependentUpon>frmCycleStepsInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SchematicFormDual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SchematicFormDual.Designer.cs">
+      <DependentUpon>SchematicFormDual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SchematicForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SchematicForm.Designer.cs">
+      <DependentUpon>SchematicForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Machine.cs" />
+    <Compile Include="Classes\ManualCommands.cs" />
+    <Compile Include="Localization.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Localization.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\frmCycleStepsInformation.resx">
+      <DependentUpon>frmCycleStepsInformation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SchematicFormDual.resx">
+      <DependentUpon>SchematicFormDual.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SchematicForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SchematicForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Localization.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WRENCH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gears.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GRAPH04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Meters.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MISC25.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MISC25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NET08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NOTE03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\Red_X.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ARROW9A.ICO" />
+    <None Include="Resources\ARROW9B.ICO" />
+    <None Include="Resources\60px-Go-up.png" />
+    <None Include="Resources\60px-Go-down.png" />
+    <None Include="Resources\GreenCheck.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Sql.Server.Express.1.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2005 Express Edition</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EventLog.png" />
+    <None Include="Resources\MISC251.bmp" />
+    <None Include="Resources\ARROW9B1.ICO" />
+    <None Include="Resources\ARROW9A1.ICO" />
+    <None Include="Resources\60px-Go-up1.png" />
+    <None Include="Resources\60px-Go-down1.png" />
+    <None Include="Resources\gears1.png" />
+    <Content Include="Classes\IOClasses\text_13.txt" />
+    <None Include="Resources\18890-G001.REV0.wmf" />
+    <None Include="Resources\18890-G001.REV1.wmf" />
+    <None Include="Resources\18890-G001.REV 2.wmf" />
+    <None Include="Resources\D545 SCREEN SCHEMATIC-1.png" />
+    <None Include="Resources\D5454_schematic.wmf" />
+    <None Include="Resources\D5454_schematic1.wmf" />
+    <None Include="Resources\D545_schematic.wmf" />
+    <None Include="Resources\D545_schematic2.wmf" />
+    <None Include="Resources\D545_schematic3.wmf" />
+    <Content Include="Resources\Vtilogo.ico" />
+    <Content Include="VtiPLCInterface.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\VTI-Library-PLCInterface\VtiPLCInterface.csproj">
+      <Project>{cc27bd10-1f90-4053-a7a0-2ae913cde2b5}</Project>
+      <Name>VtiPLCInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\VTI-Library-WindowsControls\VTIWindowsControlLibrary.csproj">
+      <Project>{d4b420f7-3bcf-4d84-b965-93ae94f6a0f2}</Project>
+      <Name>VTIWindowsControlLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

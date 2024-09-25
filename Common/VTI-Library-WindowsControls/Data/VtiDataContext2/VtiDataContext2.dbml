@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VtiData" Class="VtiDataContext2DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=VAC-QOSIDEV;Initial Catalog=VtiData;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="VTIWindowsControlLibrary.Properties.Settings" SettingsPropertyName="VtiDataConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.EnumOptions" Member="EnumOptions">
+    <Type Name="EnumOption">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SystemType" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ParameterID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GroupCommands" Member="GroupCommands">
+    <Type Name="GroupCommand">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupID" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CommandID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Group_GroupCommand" Member="Group" ThisKey="GroupID" OtherKey="GroupID" Type="Group" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Groups" Member="Groups">
+    <Type Name="Group">
+      <Column Name="GroupID" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IsLocked" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Group_GroupCommand" Member="GroupCommands" ThisKey="GroupID" OtherKey="GroupID" Type="GroupCommand" />
+      <Association Name="Group_User" Member="Users" ThisKey="GroupID" OtherKey="GroupID" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ManualCmdExecLog" Member="ManualCmdExecLogs">
+    <Type Name="ManualCmdExecLog">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="OpID" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="OverrideOpID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SystemID" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ManualCommand" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ModelParameters" Member="ModelParameters">
+    <Type Name="ModelParameter">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModelNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ParameterID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProcessValue" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SystemType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ParameterType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MinValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MaxValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Units" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DisplayName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ToolTip" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="Model_ModelParameter" Member="Model" ThisKey="ModelNo" OtherKey="ModelNo" Type="Model" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Models" Member="Models">
+    <Type Name="Model">
+      <Column Name="ModelNo" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Model_ModelParameter" Member="ModelParameters" ThisKey="ModelNo" OtherKey="ModelNo" Type="ModelParameter" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ModelXRef" Member="ModelXRefs">
+    <Type Name="ModelXRef">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModelNo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ScannedChars" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ParamChangeLog" Member="ParamChangeLogs">
+    <Type Name="ParamChangeLog">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="OpID" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="OverrideOpID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SystemID" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ParameterSectionName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ParameterName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="OldValue" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="NewValue" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SchemaChanges" Member="SchemaChanges">
+    <Type Name="SchemaChange">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="major" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="minor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="release" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="script_name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="applied" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OpID" Type="System.String" DbType="NVarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="GroupID" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="IsLocked" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Group_User" Member="Group" ThisKey="GroupID" OtherKey="GroupID" Type="Group" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UutDefects" Member="UutDefects">
+    <Type Name="UutDefect">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UutRecordID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Defect" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="UutRecord_UutDefect" Member="UutRecord" ThisKey="UutRecordID" OtherKey="ID" Type="UutRecord" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UutRecordDetails" Member="UutRecordDetails">
+    <Type Name="UutRecordDetail">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UutRecordID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="DateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Test" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Result" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ValueName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Value" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MinSetpointName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MinSetpoint" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MaxSetpointName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MaxSetpoint" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Units" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ElapsedTime" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="UutRecord_UutRecordDetail" Member="UutRecord" ThisKey="UutRecordID" OtherKey="ID" Type="UutRecord" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UutRecords" Member="UutRecords">
+    <Type Name="UutRecord">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SerialNo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ModelNo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="SystemID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="OpID" Type="System.String" DbType="NVarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="TestType" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="TestResult" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TestPort" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Association Name="UutRecord_UutDefect" Member="UutDefects" ThisKey="ID" OtherKey="UutRecordID" Type="UutDefect" />
+      <Association Name="UutRecord_UutRecordDetail" Member="UutRecordDetails" ThisKey="ID" OtherKey="UutRecordID" Type="UutRecordDetail" />
+    </Type>
+  </Table>
+</Database>

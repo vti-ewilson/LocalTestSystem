@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15, 13.5" name="VtiDataContext2">
+  <DataContextMoniker Name="/VtiDataContext2DataContext" />
+  <nestedChildShapes>
+    <classShape Id="fd9acb1b-6bce-4397-bcbf-524ba7e63048" absoluteBounds="0.75, 7.75, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/VtiDataContext2DataContext/EnumOption" />
+      <nestedChildShapes>
+        <elementListCompartment Id="46c7b9dc-7bf4-4702-a701-1e33296295f4" absoluteBounds="0.765, 8.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2c776014-842b-41ed-a1b5-16b1a4be07d2" absoluteBounds="9.5, 1, 2, 1.3862939453125">
+      <DataClassMoniker Name="/VtiDataContext2DataContext/GroupCommand" />
+      <nestedChildShapes>
+        <elementListCompartment Id="302120c8-30e6-4d86-a419-b56a88367c9a" absoluteBounds="9.515, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="728b767a-f971-4485-bb4a-494b16551774" absoluteBounds="6.75, 2.375, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/VtiDataContext2DataContext/Group" />
+      <nestedChildShapes>
+        <elementListCompartment Id="542414d3-6430-4fee-9ef6-bfe430041244" absoluteBounds="6.765, 2.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5b63e071-3a08-4dc8-abb8-aae6093cd55d" absoluteBounds="3.75, 9.75, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/VtiDataContext2DataContext/ManualCmdExecLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="88318151-4fd1-4e01-a868-ee1bd2c17196" absoluteBounds="3.765, 10.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="48e12663-8a5f-4670-a7e1-8b8461ba7285" absoluteBounds="9.5, 6, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/VtiDataContext2DataContext/ModelParameter" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e8a1e3a0-c549-46a2-800e-df362d496a58" absoluteBounds="9.515, 6.46, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="745c4851-6a3c-4d4b-843a-0532cc662627" absoluteBounds="6.75, 7, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/VtiDataContext2DataContext/Model" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b7d6a26b-abb0-492b-941d-f4dd57cb54e9" absoluteBounds="6.765, 7.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2ee79597-948c-4f54-a6dd-42f5b5ec8222" absoluteBounds="6.75, 10.75, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/VtiDataContext2DataContext/ModelXRef" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e0bfbf14-120a-4cc0-937d-f695f17c87a9" absoluteBounds="6.765, 11.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f057fbf1-1463-4694-9f88-f3543f825898" absoluteBounds="9.75, 10.75, 2, 2.5401025390624987">
+      <DataClassMoniker Name="/VtiDataContext2DataContext/ParamChangeLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1fdfa7a7-6f11-4cdd-97cf-fab04b93a4bf" absoluteBounds="9.765, 11.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b8d6a937-6860-408a-8f7d-3f738ddb975f" absoluteBounds="12.75, 0.75, 2, 1.9631982421875003">
+      <DataClassMoniker Name="/VtiDataContext2DataContext/SchemaChange" />
+      <nestedChildShapes>
+        <elementListCompartment Id="686bb26c-bb8a-4c93-9e70-99fdcf131627" absoluteBounds="12.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="35aa0408-225a-424a-a57a-f43029d3eb96" absoluteBounds="9.5, 3.125, 2, 1.7708968098958326">
+      <DataClassMoniker Name="/VtiDataContext2DataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1b644b4c-4967-49db-8732-4c3aba4726be" absoluteBounds="9.515, 3.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="939033cc-3f09-483d-a30c-7ca481e7b7db" absoluteBounds="3.5, 1.125, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/VtiDataContext2DataContext/UutDefect" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7bef215c-5a58-4228-995c-a00042f037a2" absoluteBounds="3.515, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa305aa0-326a-4216-8a75-5ccce2a41adf" absoluteBounds="3.5, 3.625, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/VtiDataContext2DataContext/UutRecordDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0799a364-2362-4d3b-b1a7-9e19d897bc3c" absoluteBounds="3.515, 4.085, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a4847165-2d55-451c-9117-b4794b00082c" absoluteBounds="0.75, 2.75, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/VtiDataContext2DataContext/UutRecord" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9bc091b7-caea-4df1-b015-b7a29b70c276" absoluteBounds="0.765, 3.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.75 : 2.375); (7.75 : 1.6874995); (9.5 : 1.6874995)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VtiDataContext2DataContext/Group/Group_GroupCommand" />
+      <nodes>
+        <classShapeMoniker Id="728b767a-f971-4485-bb4a-494b16551774" />
+        <classShapeMoniker Id="2c776014-842b-41ed-a1b5-16b1a4be07d2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 7.69314697265625); (9.5 : 7.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VtiDataContext2DataContext/Model/Model_ModelParameter" />
+      <nodes>
+        <classShapeMoniker Id="745c4851-6a3c-4d4b-843a-0532cc662627" />
+        <classShapeMoniker Id="48e12663-8a5f-4670-a7e1-8b8461ba7285" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.75 : 3.34699625651042); (9.5 : 3.34699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VtiDataContext2DataContext/Group/Group_User" />
+      <nodes>
+        <classShapeMoniker Id="728b767a-f971-4485-bb4a-494b16551774" />
+        <classShapeMoniker Id="35aa0408-225a-424a-a57a-f43029d3eb96" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 2.75); (1.75 : 1.9374995); (3.5 : 1.9374995)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VtiDataContext2DataContext/UutRecord/UutRecord_UutDefect" />
+      <nodes>
+        <classShapeMoniker Id="a4847165-2d55-451c-9117-b4794b00082c" />
+        <classShapeMoniker Id="939033cc-3f09-483d-a30c-7ca481e7b7db" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.45755126953125); (3.5 : 4.45755126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VtiDataContext2DataContext/UutRecord/UutRecord_UutRecordDetail" />
+      <nodes>
+        <classShapeMoniker Id="a4847165-2d55-451c-9117-b4794b00082c" />
+        <classShapeMoniker Id="fa305aa0-326a-4216-8a75-5ccce2a41adf" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

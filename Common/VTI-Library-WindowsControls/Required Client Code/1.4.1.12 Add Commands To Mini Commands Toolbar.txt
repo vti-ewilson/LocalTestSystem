@@ -1,0 +1,30 @@
+The Mini Command Toolbar is only available in the OperatorFormSingleNested.cs form.
+
+Can specify the button size, back color, and display text when adding a new command:
+
+_OpFormSingle.Commands.Add(ManualCommands.SelectModel, Color.LightSkyBlue, new Size(200, 50), new Font("Times New Roman", 15.75F, FontStyle.Bold)); 
+
+You can also replace a manual command with another one in its place:
+
+_OpFormSingle.Commands.Replace(ManualCommands.SelectModel, ManualCommands.AutoTest);
+
+There is now a splitter between the Mini Command Toolbar and the prompt, which the user can drag to make the Mini Command Toolbar wider.
+
+To make the Mini Command Toolbar visible, in Machine.cs, in InitializeOperatorForm():
+
+Under:
+	_OpFormSingle = new OperatorFormSingleNested(Properties.Settings.Default.PortNames[0], Properties.Settings.Default.PortColors[0], _MainForm);
+
+Add:
+	_OpFormSingle.CommandWindowVisible = true;
+        _OpFormSingle.Commands.Add(ManualCommands.StartTest);
+        _OpFormSingle.Commands.Add(ManualCommands.Reset);
+	_OpFormSingle.Commands.Add(ManualCommands.Acknowledge);
+
+To disable automatic adjusting of Mini Command Toolbar width when a command is added or removed:
+
+under:
+_OpFormSingle.CommandWindowVisible = true;
+add:
+_OpFormSingle.AutoAdjustCommandWindowWidth = false;
+

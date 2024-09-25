@@ -1,0 +1,142 @@
+7-15-2020
+Currently works with library forms OperatorFormSingleNested or OperatorFormDualNested2
+NOT completed for OperatorFormDualNested 
+
+Allows the System Signal Width and Font to be adjusted from the client Settings.settings
+Allows the Test History Width, Height, and Font to be adjusted from the client Settings.settings
+Allows the Test History number of columns to be adjusted when undocked from the client Settings.settings
+
+Preject Reference for Dual "\\svr-storage\central\Engineering\Trane\Lynn Haven FL\VTI order 15715 Upgrade PD,Chamber,VDPD,GasValve Tester,N2Fill to C#\Pressure Decay"
+
+Project Reference for Single "\\svr-storage\central\Engineering\Trane\Lynn Haven FL\VTI order 15715 Upgrade PD,Chamber,VDPD,GasValve Tester,N2Fill to C#\Chamber"
+
+Settings Described
+- Client Side Properties Added through Settings.settings, See scope and type below
+	- Adjust test history font from client
+		+ Properties.Settings.Default.TestHistoryFont
+		+ Properties.Settings.Default.TestHistoryLabelWidth
+		+ Properties.Settings.Default.TestHistoryLabelHeight
+	- Adjust test history count when not docked from client
+		+ Properties.Settings.Default.TestHistoryColumns
+		+ Properties.Settings.Default.TestHistoryRows
+	- Adjust  signals font from client 
+		+ Properties.Settings.Default.SystemSignalCaptionFont
+		+ Properties.Settings.Default.SystemSignalValueFont
+	- Adjust the system signal panel width from client
+		+ Properties.Settings.Default.SystemSignalPanelWidth
+	- Ability to adjust the valve panel font and width from client
+		
+		
+Add the following Settings to the client properties Settings.settings FOR SINGLE PORT:
+Name			Type			Scope		Value
+TestHistoryFont 	System.Drawing.Font	Application	Arial, 7.875pt
+TestHistoryLabelWidth	System.Int32" 		Application	300
+TestHistoryRows    	System.Int32		Application	5
+TestHistoryColumns	System.Int32		Application	3
+TestHistoryLabelHeight	System.Int32		Application	20
+TestHistoryDockButtonSpaces System.Int32" Scope Application     210
+SystemSignalCaptionFont	System.Drawing.Font	Application	Arial, 10.125pt
+SystemSignalPanelWidth	System.Int32		Application	300
+SystemSignalValueFont	System.Drawing.Font	Application	Microsoft Sans Serif, 7.875pt
+
+FOR DUAL PORT:
+Name			Type			Scope		Value
+TestHistoryFont 	System.Drawing.Font	Application	Arial, 9pt
+TestHistoryLabelWidth	System.Int32" 		Application	200
+TestHistoryRows    	System.Int32		Application	5
+TestHistoryColumns	System.Int32		Application	3
+TestHistoryLabelHeight	System.Int32		Application	20
+TestHistoryDockButtonSpaces System.Int32" Scope Application     210
+SystemSignalCaptionFont	System.Drawing.Font	Application	Arial, 12pt
+SystemSignalPanelWidth	System.Int32		Application	200
+SystemSignalValueFont	System.Drawing.Font	Application	Microsoft Sans Serif, 15pt
+
+
+Note: TestHistoryLabelWidth and SystemSignalPanelWidth should be the same.  
+	Must rebuild after adjusting some settings to make them take effect.
+
+Client Side Edits required in Machine.cs
+For Single Add
+        protected virtual void InitializeOperatorForm(bool ShowForm)
+        {
+           SplashScreen.Message = "Initializing Operator Form...";
+            if (Properties.Settings.Default.DualPortSystem)
+            {
+		:
+		:
+
+  		_DataPlotDockControl = _OpFormDual.DataPlotDockControl;
+                _TestHistory = _OpFormDual.TestHistory;
+                _SystemSignals = _OpFormDual.SystemSignals;         
+
+                _OpFormSingle.TestHistoryColumnCountUndocked = Properties.Settings.Default.TestHistoryColumns;
+                _OpFormSingle.TestHistoryRowCountUndocked = Properties.Settings.Default.TestHistoryRows;
+          
+                _SystemSignals[0].SignalCaptionFont = Properties.Settings.Default.SystemSignalCaptionFont;
+                _SystemSignals[0].SignalValueFont = Properties.Settings.Default.SystemSignalValueFont;
+                _SystemSignals[0].SignalCaptionWidth = Properties.Settings.Default.SystemSignalPanelWidth;
+                _OpFormSingle.SystemSignalPanelWidth = Properties.Settings.Default.SystemSignalPanelWidth;
+
+                _OpFormSingle.TestHistory.Font = Properties.Settings.Default.TestHistoryFont;
+		_TestHistory[0].LabelSize = new Size(Properties.Settings.Default.TestHistoryLabelWidth, Properties.Settings.Default.TestHistoryLabelHeight);
+		_OpFormSingle.DockButtonSpacing = Properties.Settings.Default.TestHistoryDockButtonSpaces;
+	}
+
+
+For Dual Add
+                _OpFormDual.TestHistoryColumnCountUndocked = Properties.Settings.Default.TestHistoryColumns;
+                _OpFormDual.TestHistoryRowCountUndocked = Properties.Settings.Default.TestHistoryRows;
+                _SystemSignals[0].SignalCaptionFont = Properties.Settings.Default.SystemSignalCaptionFont;
+                _SystemSignals[0].SignalValueFont = Properties.Settings.Default.SystemSignalValueFont;
+                _SystemSignals[0].SignalCaptionWidth = Properties.Settings.Default.SystemSignalPanelWidth;
+                _SystemSignals[1].SignalCaptionFont = Properties.Settings.Default.SystemSignalCaptionFont;
+                _SystemSignals[1].SignalValueFont = Properties.Settings.Default.SystemSignalValueFont;
+                _SystemSignals[1].SignalCaptionWidth = Properties.Settings.Default.SystemSignalPanelWidth;
+                _OpFormDual.SystemSignalPanelWidth = Properties.Settings.Default.SystemSignalPanelWidth;
+                _OpFormDual.TestHistory[0].Font = Properties.Settings.Default.TestHistoryFont;
+                _OpFormDual.TestHistory[1].Font = Properties.Settings.Default.TestHistoryFont;
+                _TestHistory[0].LabelSize = new Size(Properties.Settings.Default.TestHistoryLabelWidth, Properties.Settings.Default.TestHistoryLabelHeight);
+                _TestHistory[1].LabelSize = new Size(Properties.Settings.Default.TestHistoryLabelWidth, Properties.Settings.Default.TestHistoryLabelHeight);
+                _OpFormDual.DockButtonSpacing = Properties.Settings.Default.TestHistoryDockButtonSpaces;
+
+:
+:
+else
+{
+
+:
+:
+                 _OpFormSingle.TestHistoryDockControl.Show();
+                _ValvesPanel = new ValvesPanelControl[1];
+                _ValvesPanel[0] = _OpFormSingle.ValvesPanel;
+                _SystemSignals = new SystemSignalsControl[1];
+                _SystemSignals[0] = _OpFormSingle.SystemSignals;
+
+
+
+
+
+Use This code in a A Test Step to determine sizes
+ Machine.TestHistory[0].AddEntry("1234567890 : PASSED", Color.Black, Color.White);
+            Machine.TestHistory[1].AddEntry("1234567890123456 : FAILED", Color.Red, Color.Black);
+
+
+            // Size(Width, Height)
+            // Font(FontFamily, Size, Style)
+
+            int SignalsAndTestHistoryWidth = 300;
+            int TestHistoryLabelHeight = 25;
+            Machine.OpFormDual.TestHistoryColumnCountUndocked = 3;
+            Machine.OpFormDual.TestHistoryRowCountUndocked = 6;
+            Machine.SystemSignals[0].SignalCaptionFont = new Font("Arial", 20, FontStyle.Bold);
+            Machine.SystemSignals[0].SignalValueFont = new Font("Arial", 20, FontStyle.Bold);
+            Machine.SystemSignals[0].SignalCaptionWidth = SignalsAndTestHistoryWidth;
+            Machine.SystemSignals[1].SignalCaptionFont = new Font("Arial", 20, FontStyle.Bold);
+            Machine.SystemSignals[1].SignalValueFont = new Font("Arial", 20, FontStyle.Bold);
+            Machine.SystemSignals[1].SignalCaptionWidth = SignalsAndTestHistoryWidth;
+            Machine.OpFormDual.SystemSignalPanelWidth = SignalsAndTestHistoryWidth;
+            Machine.OpFormDual.TestHistory[0].Font = new Font("Arial", 15, FontStyle.Bold);
+            Machine.OpFormDual.TestHistory[1].Font = new Font("Arial", 15, FontStyle.Bold);
+            Machine.OpFormDual.DockButtonSpacing = 228;// Properties.Settings.Default.TestHistoryDockButtonSpaces;
+            Machine.TestHistory[0].LabelSize = new Size(SignalsAndTestHistoryWidth, TestHistoryLabelHeight);
+            Machine.TestHistory[1].LabelSize = new Size(SignalsAndTestHistoryWidth, TestHistoryLabelHeight);

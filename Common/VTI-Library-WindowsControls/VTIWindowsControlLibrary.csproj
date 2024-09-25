@@ -1,0 +1,1396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D4B420F7-3BCF-4D84-B965-93AE94F6A0F2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VTIWindowsControlLibrary</RootNamespace>
+    <AssemblyName>VTIWindowsControlLibrary</AssemblyName>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <SignAssembly>false</SignAssembly>
+    <PublishUrl>http://localhost/VTIWindowsControlLibrary/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\VTIWindowsControlLibrary.XML</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Quick Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Quick Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\VTIWindowsControlLibrary.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing">
+      <HintPath>C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\ClientForms\AboutBox.cs" />
+    <Compile Include="Classes\ClientForms\ManualCmdExecLog.cs" />
+    <Compile Include="Classes\ClientForms\ConfigBackupSelect.cs" />
+    <Compile Include="Classes\ClientForms\ParamChangeLog.cs" />
+    <Compile Include="Classes\Configuration\EthernetPortParameter.cs" />
+    <Compile Include="Classes\Configuration\TorrConIVSerialParameter.cs" />
+    <Compile Include="Classes\Data\ModelParameterToUpdate.cs" />
+    <Compile Include="Classes\Data\ChangedParameter.cs" />
+    <Compile Include="Classes\IO\EthernetIO\EthernetPortSettings.cs" />
+    <Compile Include="Classes\IO\EthernetIO\EthernetIOBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\EthernetIO\EthernetIOBase.Designer.cs">
+      <DependentUpon>EthernetIOBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\EthernetIO\InficonCube.cs" />
+    <Compile Include="Classes\IO\EthernetIO\PolyScienceAD15R30.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\EthernetIO\TorrconIV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\EthernetIO\KeithleyDMM6500.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\AthenaController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonModul1000ASCII.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonModul1000ASCII.Designer.cs">
+      <DependentUpon>InficonModul1000ASCII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonVGC083.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\KeyenceScanner.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\KeyenceScanner.Designer.cs">
+      <DependentUpon>KeyenceScanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\MesskonzeptFTC320.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\MesskonzeptFTC320.Designer.cs">
+      <DependentUpon>MesskonzeptFTC320.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\OptimaOP909Scale.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\RFIDeasBadgeReader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\RFIDeasBadgeReader.Designer.cs">
+      <DependentUpon>RFIDeasBadgeReader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonHLD6000ASCIIMDB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonHLD6000ASCIIMDB.Designer.cs">
+      <DependentUpon>InficonHLD6000ASCIIMDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonXL3000flex.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonXL3000flex.Designer.cs">
+      <DependentUpon>InficonXL3000flex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\Keithley2000scan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\MKSSRG.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\MKS670.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonLDS2010BinaryMDB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonLDS2010BinaryMDB.Designer.cs">
+      <DependentUpon>InficonLDS2010BinaryMDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonLDS3000ASCIIMDB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonLDS3000ASCIIMDB.Designer.cs">
+      <DependentUpon>InficonLDS3000ASCIIMDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\OptimaOP900Scale.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\SMCRegulatorASCIIMDB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\SMCRegulatorASCIIMDB.designer.cs">
+      <DependentUpon>SMCRegulatorASCIIMDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonSensistorASCIIMDB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonSensistorASCIIMDB.designer.cs">
+      <DependentUpon>InficonSensistorASCIIMDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonP3000ASCIIMDB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonP3000ASCIIMDB.Designer.cs">
+      <DependentUpon>InficonP3000ASCIIMDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\SorensenAsterion.cs" />
+    <Compile Include="Classes\IO\SerialIO\SorensenAsterion.Designer.cs">
+      <DependentUpon>SorensenAsterion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\SRS_PTC10.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\TerraNova934a.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\TGuardController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\TorrConIIController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\TorrConIII.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\TorrConIII.Designer.cs">
+      <DependentUpon>TorrConIII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\TorrconIIIasPVGC5Controller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\BarcodeScanner.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\BarcodeScanner.Designer.cs">
+      <DependentUpon>BarcodeScanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\MesskonzeptFTC130.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\MesskonzeptFTC130.Designer.cs">
+      <DependentUpon>MesskonzeptFTC130.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\TorrConIV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\TorrConIV.Designer.cs">
+      <DependentUpon>TorrConIV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\TorrConnIVPortSettings.cs" />
+    <Compile Include="Classes\IO\SerialIO\TricorFlowmeterController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\TricorFlowmeterController.Designer.cs" />
+    <Compile Include="Classes\IO\VTIPLCInterfaceAccessMethods.cs" />
+    <Compile Include="Classes\ManualCommands\ManualCommandAttribute.cs" />
+    <Compile Include="Classes\ManualCommands\ManualCommandInterceptAttribute.cs" />
+    <Compile Include="Classes\ManualCommands\ManualCommandInterceptProperty.cs" />
+    <Compile Include="Classes\ManualCommands\ManualCommandInterceptSink.cs" />
+    <Compile Include="Classes\ManualCommands\ManualCommandsBase.cs" />
+    <Compile Include="Classes\ManualCommands\ManualCommandsExtensions.cs" />
+    <Compile Include="Classes\SystemDiagnostics.cs" />
+    <Compile Include="Classes\Util\Actions.cs" />
+    <Compile Include="Classes\Util\ChainableResourceManager.cs" />
+    <Compile Include="Classes\Configuration\BooleanParameter.cs" />
+    <Compile Include="Classes\Configuration\EditCycleApplicationSettingsBase.cs" />
+    <Compile Include="Classes\Configuration\EditCycleParameter.cs" />
+    <Compile Include="Classes\Configuration\EnumParameter.cs" />
+    <Compile Include="Classes\Configuration\NumericParameter.cs" />
+    <Compile Include="Classes\Configuration\NumericParameterGeneric.cs" />
+    <Compile Include="Classes\Configuration\ObjectConfiguration.cs" />
+    <Compile Include="Classes\Configuration\ObjectConfigurationSection.cs" />
+    <Compile Include="Classes\Configuration\SerialPortParameter.cs" />
+    <Compile Include="Classes\Configuration\StringParameter.cs" />
+    <Compile Include="Classes\Configuration\StringSourceAttribute.cs" />
+    <Compile Include="Classes\Configuration\TimeDelayParameter.cs" />
+    <Compile Include="Classes\GenericSingleton.cs" />
+    <Compile Include="Classes\Graphing\DataPlot\DataPlotCycleComment.cs" />
+    <Compile Include="Classes\Graphing\DataPlot\DataPlotGraphData.cs" />
+    <Compile Include="Classes\Graphing\DataPlot\DataPlotSettings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\Graphing\DataPlot\DataPlotIOState.cs" />
+    <Compile Include="Classes\Graphing\DataPlot\DataPointType.cs" />
+    <Compile Include="Classes\Graphing\GraphComment.cs" />
+    <Compile Include="Classes\Graphing\GraphData.cs" />
+    <Compile Include="Classes\Graphing\GraphPoint.cs" />
+    <Compile Include="Classes\Graphing\GraphSettings.cs" />
+    <Compile Include="Classes\Graphing\Interfaces\IGraphPoint.cs" />
+    <Compile Include="Classes\Graphing\Interfaces\IGraphTrace.cs" />
+    <Compile Include="Classes\Graphing\KeyedTraceCollection.cs" />
+    <Compile Include="Classes\Graphing\Util\GraphPointExtensions.cs" />
+    <Compile Include="Classes\Graphing\Util\LinearRegressionType.cs" />
+    <Compile Include="Classes\Graphing\Util\PeakStatistics.cs" />
+    <Compile Include="Classes\Graphing\Util\PlotTimeComparer.cs" />
+    <Compile Include="Classes\Graphing\TraceChangeType.cs" />
+    <Compile Include="Classes\Graphing\DataPlot\DataPlotTraceCollection.cs" />
+    <Compile Include="Classes\Graphing\TraceCollectionEventArgs.cs" />
+    <Compile Include="Classes\Graphing\DataPlot\DataPlotTraceType.cs" />
+    <Compile Include="Classes\Graphing\TraceDisplayType.cs" />
+    <Compile Include="Classes\Graphing\TraceTypeBase.cs" />
+    <Compile Include="Classes\Graphing\DataPlot\XAxisDisplayUnitsType.cs" />
+    <Compile Include="Classes\Graphing\DataPlot\XAxisUnitsType.cs" />
+    <Compile Include="Classes\Graphing\DataPlot\XWindowShiftType.cs" />
+    <Compile Include="Classes\Data\SchemaRevision.cs" />
+    <Compile Include="Classes\Data\Script.cs" />
+    <Compile Include="Classes\DefectTracking\DefectCode.cs" />
+    <Compile Include="Classes\DefectTracking\DefectCodes.cs" />
+    <Compile Include="Classes\ClientForms\DigitalIO.cs" />
+    <Compile Include="Classes\FormatProviders\TorrConFormatProvider.cs" />
+    <Compile Include="Classes\IO\AnalogSignalCollection.cs" />
+    <Compile Include="Classes\IO\Interfaces\IAnalogDigitalIO.cs" />
+    <Compile Include="Classes\IO\Interfaces\IAnalogIO.cs" />
+    <Compile Include="Classes\IO\SerialIO\SerialPortSettings.cs" />
+    <Compile Include="Classes\Searches\GeneticSearch.cs" />
+    <Compile Include="Classes\Searches\PeakSearch.cs" />
+    <Compile Include="Classes\Searches\PeakSearchObjective.cs" />
+    <Compile Include="Classes\Searches\PeakSearchResult.cs" />
+    <Compile Include="Classes\ClientForms\Inquire.cs" />
+    <Compile Include="Classes\Util\Int24.cs" />
+    <Compile Include="Classes\IO\AnalogOutputSignal.cs" />
+    <Compile Include="Classes\IO\AnalogSignal.cs" />
+    <Compile Include="Classes\Graphing\Util\DefaultTraceColors.cs" />
+    <Compile Include="Classes\IO\DigitalOutputChangeCanceledException.cs" />
+    <Compile Include="Classes\IO\DigitalOutputChangingEventArgs.cs" />
+    <Compile Include="Classes\IO\Interfaces\IAnalogOutput.cs" />
+    <Compile Include="Classes\IO\Interfaces\IDigitalInput.cs" />
+    <Compile Include="Classes\IO\Interfaces\IDigitalIO.cs" />
+    <Compile Include="Classes\IO\Interfaces\IDigitalOutput.cs" />
+    <Compile Include="Classes\IO\Interfaces\IFormattedAnalogInput.cs" />
+    <Compile Include="Classes\IO\Interfaces\IIoConfig.cs" />
+    <Compile Include="Classes\IO\IOInterface.cs" />
+    <Compile Include="Classes\IO\IOSubSystemBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\AccuLabScale.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonLDS2010Binary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonLDS2010Binary.Designer.cs">
+      <DependentUpon>InficonLDS2010Binary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonLDS2010Profibus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\InficonLDS2010Profibus.Designer.cs">
+      <DependentUpon>InficonLDS2010Profibus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\PfeifferInterface.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\PfeifferInterface.Designer.cs">
+      <DependentUpon>PfeifferInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\PfeifferTurboController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\PfeifferTurboController.Designer.cs">
+      <DependentUpon>PfeifferTurboController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\RS485IOBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\RS485IOBase.Designer.cs">
+      <DependentUpon>RS485IOBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\PVGC5Controller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\RS485ModbusInterface.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\RS485ModbusInterface.Designer.cs">
+      <DependentUpon>RS485ModbusInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\SerialIOBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\SerialIOBase.Designer.cs">
+      <DependentUpon>SerialIOBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\SoloTempController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SignalConverters\InficonLDS2010ForelineSignal.cs" />
+    <Compile Include="Classes\IO\SignalConverters\InficonLDS2010LeakRateSignal.cs" />
+    <Compile Include="Classes\IO\SignalConverters\LinearSignal.cs" />
+    <Compile Include="Classes\IO\SignalConverters\LogLinearSignal.cs" />
+    <Compile Include="Classes\IO\SignalConverters\MsiSignal.cs" />
+    <Compile Include="Classes\IO\SignalConverters\OdysseySignal.cs" />
+    <Compile Include="Classes\IO\SignalConverters\TorrconSignal.cs" />
+    <Compile Include="Classes\IO\UnavailableAnalogInput.cs" />
+    <Compile Include="Classes\IO\UnavailableAnalogOutput.cs" />
+    <Compile Include="Classes\IO\UnavailableDigitalInput.cs" />
+    <Compile Include="Classes\IO\UnavailableDigitalOutput.cs" />
+    <Compile Include="Classes\CycleSteps\CycleStepsBase.cs" />
+    <Compile Include="Classes\CycleSteps\CycleStep.cs" />
+    <Compile Include="Classes\Configuration\ModelSettingsBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\ClientForms\EditCycle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\ClientForms\InputBox.cs" />
+    <Compile Include="Classes\ClientForms\KeyPad.cs" />
+    <Compile Include="Classes\ClientForms\Permissions.cs" />
+    <Compile Include="Classes\ClientForms\SchematicFormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\ClientForms\SelectModelForm.cs" />
+    <Compile Include="Classes\SequenceStep.cs" />
+    <Compile Include="Classes\ClientForms\SplashScreen.cs" />
+    <Compile Include="Classes\Configuration\AllUsersSettingsProvider.cs" />
+    <Compile Include="Classes\Util\GenericEventArgs.cs" />
+    <Compile Include="Classes\Util\SaveConfigGoodFile.cs" />
+    <Compile Include="Classes\Util\ThreadSafeExtensionMethods.cs" />
+    <Compile Include="Classes\VtiEvent.cs" />
+    <Compile Include="Classes\VtiExceptionHandler.cs" />
+    <Compile Include="Components\AutoSizeTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\AutoSizeTextBox.Designer.cs">
+      <DependentUpon>AutoSizeTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Configuration\BooleanParameterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Configuration\BooleanParameterControl.Designer.cs">
+      <DependentUpon>BooleanParameterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Graphing\CommentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Graphing\CommentControl.Designer.cs">
+      <DependentUpon>CommentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\IAIRoboCylinder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\IAIRoboCylinder.Designer.cs">
+      <DependentUpon>IAIRoboCylinder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Graphing\DataPlotControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Graphing\DataPlotControl.Designer.cs">
+      <DependentUpon>DataPlotControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Graphing\DataPlotDockControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\Graphing\DataPlotDockControl.Designer.cs">
+      <DependentUpon>DataPlotDockControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Graphing\DataPlotGraphControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Configuration\DropDownParameterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Configuration\DropDownParameterControl.Designer.cs">
+      <DependentUpon>DropDownParameterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Graphing\GraphControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Graphing\GraphControl.Designer.cs">
+      <DependentUpon>GraphControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\HorizSignalIndicator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\HorizSignalIndicator.Designer.cs">
+      <DependentUpon>HorizSignalIndicator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\LEDLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\LEDLabel.Designer.cs">
+      <DependentUpon>LEDLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\LEDLabel2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\LEDLabel2.Designer.cs">
+      <DependentUpon>LEDLabel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\LightedLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\LightedLabel.Designer.cs">
+      <DependentUpon>LightedLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MiniCommandControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\MiniCommandControl.Designer.cs">
+      <DependentUpon>MiniCommandControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Configuration\NumericParameterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Configuration\NumericParameterControl.Designer.cs">
+      <DependentUpon>NumericParameterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\NumericSlider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\NumericSlider.Designer.cs">
+      <DependentUpon>NumericSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\OvalControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\OvalControl.Designer.cs">
+      <DependentUpon>OvalControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\RichTextPrompt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\RichTextPrompt.Designer.cs">
+      <DependentUpon>RichTextPrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SchematicLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\SchematicLabel.Designer.cs">
+      <DependentUpon>SchematicLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SequenceStepsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\SequenceStepsControl.Designer.cs">
+      <DependentUpon>SequenceStepsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SignalIndicatorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\SignalIndicatorControl.Designer.cs">
+      <DependentUpon>SignalIndicatorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SimpleDockControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\SimpleDockControl.Designer.cs">
+      <DependentUpon>SimpleDockControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\LineControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\LineControl.Designer.cs">
+      <DependentUpon>LineControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\LockableCheckbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\LockableCheckbox.Designer.cs">
+      <DependentUpon>LockableCheckbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SchematicCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\SchematicCheckBox.Designer.cs">
+      <DependentUpon>SchematicCheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SchematicPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\SchematicPanel.Designer.cs">
+      <DependentUpon>SchematicPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ShadowTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\ShadowTextBox.Designer.cs">
+      <DependentUpon>ShadowTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\TorrConII.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\IO\SerialIO\TorrConII.Designer.cs">
+      <DependentUpon>TorrConII.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Configuration\StringParameterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\Configuration\StringParameterControl.Designer.cs">
+      <DependentUpon>StringParameterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SystemSignalControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\SystemSignalControl.Designer.cs">
+      <DependentUpon>SystemSignalControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SystemSignalsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\SystemSignalsControl.Designer.cs">
+      <DependentUpon>SystemSignalsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\TestHistoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\TestHistoryControl.Designer.cs">
+      <DependentUpon>TestHistoryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\TestHistoryDockControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\TestHistoryDockControl.Designer.cs">
+      <DependentUpon>TestHistoryDockControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\TransparentPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\ValvesPanelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ValvesPanelControl.designer.cs">
+      <DependentUpon>ValvesPanelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ValvesPanelDockControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\ValvesPanelDockControl.designer.cs">
+      <DependentUpon>ValvesPanelDockControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\VtiEventLog.cs" />
+    <Compile Include="Data\VtiDataContext.cs">
+      <DependentUpon>VtiDataContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\VtiDataContext1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VtiDataContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\VtiDataContext2\VtiDataContext2.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VtiDataContext2.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\CommandPermissionType.cs" />
+    <Compile Include="Enums\CycleStepState.cs" />
+    <Compile Include="Enums\CycleStepTimeDelayUnits.cs" />
+    <Compile Include="Enums\DateFilterType.cs" />
+    <Compile Include="Classes\EventTypeDescription.cs" />
+    <Compile Include="Enums\VtiEventCatType.cs" />
+    <Compile Include="Forms\AboutBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutBoxForm.Designer.cs">
+      <DependentUpon>AboutBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ConfigBackupSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConfigBackupSelectForm.Designer.cs">
+      <DependentUpon>ConfigBackupSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LDS3000CommandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LDS3000CommandForm.designer.cs">
+      <DependentUpon>LDS3000CommandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperatorFormSingleNestedNoSeq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OperatorFormSingleNestedNoSeq.Designer.cs">
+      <DependentUpon>OperatorFormSingleNestedNoSeq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperatorFormTrippleNestedTwo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OperatorFormTrippleNestedTwo.Designer.cs">
+      <DependentUpon>OperatorFormTrippleNestedTwo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManualCmdExecLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManualCmdExecLogForm.Designer.cs">
+      <DependentUpon>ManualCmdExecLogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ParamChangeLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ParamChangeLogForm.Designer.cs">
+      <DependentUpon>ParamChangeLogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SRSPTC10SetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SRSPTC10SetupForm.Designer.cs">
+      <DependentUpon>SRSPTC10SetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SRGSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SRGSetupForm.designer.cs">
+      <DependentUpon>SRGSetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditCycleSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditCycleSearchForm.designer.cs">
+      <DependentUpon>EditCycleSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DataPlotForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DataPlotForm.designer.cs">
+      <DependentUpon>DataPlotForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InquireForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InquireForm.Designer.cs">
+      <DependentUpon>InquireForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DefectEntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DefectEntryForm.designer.cs">
+      <DependentUpon>DefectEntryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IAIRoboCylinderManualControlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IAIRoboCylinderManualControlForm.Designer.cs">
+      <DependentUpon>IAIRoboCylinderManualControlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperatorFormDualNested.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OperatorFormDualNested.Designer.cs">
+      <DependentUpon>OperatorFormDualNested.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperatorFormDualNested2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OperatorFormDualNested2.Designer.cs">
+      <DependentUpon>OperatorFormDualNested2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperatorFormSingleNested.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OperatorFormSingleNested.Designer.cs">
+      <DependentUpon>OperatorFormSingleNested.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperatorFormTrippleNested.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OperatorFormTrippleNested.Designer.cs">
+      <DependentUpon>OperatorFormTrippleNested.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PlotPropForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlotPropForm.designer.cs">
+      <DependentUpon>PlotPropForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GenericTouchScreenButtonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GenericTouchScreenButtonForm.designer.cs">
+      <DependentUpon>GenericTouchScreenButtonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DigitalIOForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DigitalIOForm.Designer.cs">
+      <DependentUpon>DigitalIOForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditCycleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditCycleForm.designer.cs">
+      <DependentUpon>EditCycleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EventLogViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EventLogViewerForm.designer.cs">
+      <DependentUpon>EventLogViewerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InputBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InputBoxForm.designer.cs">
+      <DependentUpon>InputBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\KeyPadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\KeyPadForm.Designer.cs">
+      <DependentUpon>KeyPadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PermissionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PermissionsForm.Designer.cs">
+      <DependentUpon>PermissionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IO\Interfaces\IAnalogInput.cs" />
+    <Compile Include="Classes\IO\Interfaces\IAnalogSignalConverter.cs" />
+    <Compile Include="Classes\IO\Interfaces\ILinearSignalConverter.cs" />
+    <Compile Include="Classes\IO\Interfaces\ILogLinearSignalConverter.cs" />
+    <Compile Include="Forms\SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Configuration\Interfaces\IEditCycleParameter.cs" />
+    <Compile Include="Forms\TouchScreenButtonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IConfig.cs" />
+    <Compile Include="Interfaces\IIOSettings.cs" />
+    <Compile Include="Interfaces\IMachine.cs" />
+    <Compile Include="Interfaces\IManualCommands.cs" />
+    <Compile Include="Interfaces\IModelSettings.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Components\NumberPadControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\NumberPadControl.Designer.cs">
+      <DependentUpon>NumberPadControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Classes\Util\VtiBitConverter.cs" />
+    <Compile Include="Classes\Util\CellStyleHelper.cs" />
+    <Compile Include="Classes\Util\ColorHslYuv.cs" />
+    <Compile Include="Classes\Util\EnumHelpers.cs" />
+    <Compile Include="Classes\Util\ExtensionMethods.cs" />
+    <Compile Include="Classes\Util\FormLanguageSwitch.cs" />
+    <Compile Include="Classes\Util\StringExtensions.cs" />
+    <Compile Include="Classes\Util\Win32Support.cs" />
+    <Compile Include="Classes\Util\Win32_NTLogEvent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\Util\WMIUtil.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="VtiLib.cs" />
+    <Compile Include="Components\WrappingCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VtiLibLocalization.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VtiLibLocalization.resx</DependentUpon>
+    </Compile>
+    <Compile Include="VtiLibLocalization.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VtiLibLocalization.es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="VtiStandardMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VtiStandardMessages.resx</DependentUpon>
+    </Compile>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Classes\IO\EthernetIO\EthernetIOBase.resx">
+      <DependentUpon>EthernetIOBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\IO\SerialIO\MesskonzeptFTC320.resx">
+      <DependentUpon>MesskonzeptFTC320.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\IO\SerialIO\RFIDeasBadgeReader.resx">
+      <DependentUpon>RFIDeasBadgeReader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\IO\SerialIO\PfeifferInterface.resx">
+      <DependentUpon>PfeifferInterface.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\IO\SerialIO\PfeifferTurboController.resx">
+      <DependentUpon>PfeifferTurboController.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\IO\SerialIO\RS485IOBase.resx">
+      <DependentUpon>RS485IOBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\IO\SerialIO\RS485ModbusInterface.resx">
+      <DependentUpon>RS485ModbusInterface.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\IO\SerialIO\SerialIOBase.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SerialIOBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\IO\SerialIO\SoloTempController.resx">
+      <DependentUpon>SoloTempController.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\IO\SerialIO\BarcodeScanner.resx">
+      <DependentUpon>BarcodeScanner.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\IO\SerialIO\MesskonzeptFTC130.resx">
+      <DependentUpon>MesskonzeptFTC130.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\IO\SerialIO\TorrConIV.resx">
+      <DependentUpon>TorrConIV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\IO\SerialIO\TricorFlowmeterController.resx" />
+    <EmbeddedResource Include="Components\Graphing\CommentControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CommentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\IO\SerialIO\TorrConII.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TorrConII.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Graphing\DataPlotControl.resx">
+      <DependentUpon>DataPlotControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Graphing\DataPlotDockControl.resx">
+      <DependentUpon>DataPlotDockControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Graphing\GraphControl.resx">
+      <DependentUpon>GraphControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\LEDLabel.resx">
+      <DependentUpon>LEDLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\LEDLabel2.resx">
+      <DependentUpon>LEDLabel2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\LightedLabel.resx">
+      <DependentUpon>LightedLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\MiniCommandControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MiniCommandControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\NumericSlider.resx">
+      <DependentUpon>NumericSlider.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\OvalControl.resx">
+      <DependentUpon>OvalControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\SequenceStepsControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SequenceStepsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\SignalIndicatorControl.resx">
+      <DependentUpon>SignalIndicatorControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\SimpleDockControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SimpleDockControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\TestHistoryControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TestHistoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\TestHistoryDockControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TestHistoryDockControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Data\VtiDataContext.dbml.layout">
+      <DependentUpon>VtiDataContext.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Forms\AboutBoxForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AboutBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConfigBackupSelectForm.resx">
+      <DependentUpon>ConfigBackupSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LDS3000CommandForm.resx">
+      <DependentUpon>LDS3000CommandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OperatorFormSingleNestedNoSeq.resx">
+      <DependentUpon>OperatorFormSingleNestedNoSeq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OperatorFormTrippleNestedTwo.resx">
+      <DependentUpon>OperatorFormTrippleNestedTwo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManualCmdExecLogForm.resx">
+      <DependentUpon>ManualCmdExecLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ParamChangeLogForm.resx">
+      <DependentUpon>ParamChangeLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SRGSetupForm.resx">
+      <DependentUpon>SRGSetupForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DataPlotForm.resx">
+      <DependentUpon>DataPlotForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InquireForm.resx">
+      <DependentUpon>InquireForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DefectEntryForm.resx">
+      <DependentUpon>DefectEntryForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IAIRoboCylinderManualControlForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>IAIRoboCylinderManualControlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OperatorFormDualNested.resx">
+      <DependentUpon>OperatorFormDualNested.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OperatorFormDualNested2.resx">
+      <DependentUpon>OperatorFormDualNested2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OperatorFormSingleNested.resx">
+      <DependentUpon>OperatorFormSingleNested.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OperatorFormTrippleNested.resx">
+      <DependentUpon>OperatorFormTrippleNested.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlotPropForm.resx">
+      <DependentUpon>PlotPropForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GenericTouchScreenButtonForm.resx">
+      <DependentUpon>GenericTouchScreenButtonForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DigitalIOForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DigitalIOForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditCycleForm.resx">
+      <DependentUpon>EditCycleForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EventLogViewerForm.resx">
+      <DependentUpon>EventLogViewerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InputBoxForm.resx">
+      <DependentUpon>InputBoxForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KeyPadForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>KeyPadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PermissionsForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PermissionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SplashForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SRSPTC10SetupForm.resx">
+      <DependentUpon>SRSPTC10SetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\NumberPadControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NumberPadControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VtiLibLocalization.es.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>VtiLibLocalization.es.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VtiLibLocalization.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>VtiLibLocalization.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\VtiDataContext2\VtiDataContext2.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>VtiDataContext2.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Data\VtiDataContext2\VtiDataContext2.dbml.layout">
+      <DependentUpon>VtiDataContext2.dbml</DependentUpon>
+    </None>
+    <None Include="Resources\Red_X.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenCheck.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\GreenCheck.png" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\60px-Go-down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\60px-Go-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Sql.Server.Express.1.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2005 Express Edition</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barcode.bmp" />
+    <None Include="Resources\arrow_up2.png" />
+    <None Include="Resources\arrow_down2.png" />
+    <None Include="Classes\DefectTracking\VtiDefectCodes.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Classes\DefectTracking\VtiDefectCodes.xsx">
+      <DependentUpon>VtiDefectCodes.xsd</DependentUpon>
+    </None>
+    <Content Include="Data\VtiDataSchema\schema.ddl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Data\VtiDataContext.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>VtiDataContext1.designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\Blue_Plus.PNG" />
+    <None Include="Resources\Red_Minus.png" />
+    <None Include="Resources\Icon0696.ico" />
+    <EmbeddedResource Include="Classes\IO\SerialIO\TorrConIII.resx">
+      <DependentUpon>TorrConIII.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Configuration\BooleanParameterControl.resx">
+      <DependentUpon>BooleanParameterControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Configuration\DropDownParameterControl.resx">
+      <DependentUpon>DropDownParameterControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Configuration\NumericParameterControl.resx">
+      <DependentUpon>NumericParameterControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\Configuration\StringParameterControl.resx">
+      <DependentUpon>StringParameterControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\HorizSignalIndicator.resx">
+      <DependentUpon>HorizSignalIndicator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\SystemSignalControl.resx">
+      <DependentUpon>SystemSignalControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\SystemSignalsControl.resx">
+      <DependentUpon>SystemSignalsControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ValvesPanelControl.resx">
+      <DependentUpon>ValvesPanelControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ValvesPanelDockControl.resx">
+      <DependentUpon>ValvesPanelDockControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditCycleSearchForm.resx">
+      <DependentUpon>EditCycleSearchForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\panel.png" />
+    <EmbeddedResource Include="VtiStandardMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>VtiStandardMessages.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Resources\green_plus2.png" />
+    <None Include="Resources\green_plus.png" />
+    <None Include="Resources\arrow_down.png" />
+    <None Include="Resources\arrow_left.png" />
+    <None Include="Resources\GraphProperties.ico" />
+    <None Include="Resources\GraphProperties.png" />
+    <None Include="Resources\DataPlotControl.bmp" />
+    <None Include="Resources\CloseToolbar.PNG" />
+    <None Include="Resources\EventLogsm.png" />
+    <None Include="Resources\GRAPH04sm.png" />
+    <None Include="Resources\gears.png" />
+    <None Include="Resources\GRAPH04.png" />
+    <None Include="Resources\Meters.png" />
+    <None Include="Resources\MISC25.png" />
+    <None Include="Resources\NET08.png" />
+    <None Include="Resources\WRENCH.png" />
+    <None Include="Resources\EventLog.png" />
+    <None Include="Resources\dock_small.png" />
+    <None Include="Resources\dock_button2.png" />
+    <None Include="Resources\dock_button.png" />
+    <None Include="Resources\minimize_small.png" />
+    <None Include="Resources\restore_small.png" />
+    <None Include="Resources\maximize_small.png" />
+    <None Include="Resources\BringToFront.png" />
+    <None Include="Resources\SendToBack.png" />
+    <None Include="Resources\Vtilogo.ico" />
+    <None Include="Resources\cut.png" />
+    <None Include="Resources\properties.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\pagesetup.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\open.png" />
+    <None Include="Resources\large circle-slash.png" />
+    <None Include="Resources\InputOff.ico" />
+    <None Include="Resources\InputOn.ico" />
+    <None Include="Resources\Vtilogo3.bmp" />
+    <None Include="Resources\Vtilogo2.BMP" />
+    <None Include="Resources\callout.PNG" />
+    <None Include="Resources\tshadowdownright.png" />
+    <None Include="Resources\tshadowdownleft.png" />
+    <None Include="Resources\tshadowdown.png" />
+    <None Include="Resources\tshadowtopright.png" />
+    <None Include="Resources\tshadowright.png" />
+    <None Include="Resources\closedhand2.png" />
+    <None Include="Resources\closedhand.png" />
+    <None Include="Resources\closedhand.ico" />
+    <None Include="Resources\closedhand.cur" />
+    <None Include="Resources\closedhand.cur.ico" />
+    <None Include="Resources\table.png" />
+    <None Include="Resources\tab_go.png" />
+    <None Include="Resources\SuccessAudit.gif" />
+    <None Include="Resources\script_code_red.png" />
+    <None Include="Resources\script_code.png" />
+    <None Include="Resources\page_gear.png" />
+    <None Include="Resources\page_copy.png" />
+    <None Include="Resources\page.png" />
+    <None Include="Resources\lock.png" />
+    <None Include="Resources\link_go.png" />
+    <None Include="Resources\link_error.png" />
+    <None Include="Resources\link_add.png" />
+    <None Include="Resources\key.png" />
+    <None Include="Resources\information.png" />
+    <None Include="Resources\help.png" />
+    <None Include="Resources\flag_red.png" />
+    <None Include="Resources\flag_red.gif" />
+    <None Include="Resources\flag_orange.gif" />
+    <None Include="Resources\FailureAudit.gif" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\door_out.png" />
+    <None Include="Resources\connect.png" />
+    <None Include="Resources\color_wheel.png" />
+    <None Include="Resources\color_swatch.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\cancel1.png" />
+    <None Include="Resources\arrow_up.png" />
+    <None Include="Resources\arrow_right.png" />
+    <None Include="Resources\arrow_refresh_small.png" />
+    <None Include="Resources\arrow_refresh.png" />
+    <None Include="Resources\arrow_out.png" />
+    <None Include="Resources\arrow_in.png" />
+    <None Include="Resources\afraid.bmp" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\action_refresh_blue.gif" />
+    <None Include="Resources\Warning.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\VtiDataSchema\Updates\" />
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="itext7">
+      <Version>8.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="itext7.bouncy-castle-adapter">
+      <Version>8.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="RestSharp">
+      <Version>112.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

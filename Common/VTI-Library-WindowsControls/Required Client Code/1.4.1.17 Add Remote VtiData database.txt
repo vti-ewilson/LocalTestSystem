@@ -1,0 +1,87 @@
+ControlSettings.cs:
+
+		#region RemoteConnectionString_VtiData : StringParameter
+        [UserScopedSetting()]
+        [XmlElement("StringParameter")]
+        [DefaultSettingValue(@"
+            <StringParameter>
+                <DisplayName>Remote Connection String VtiData</DisplayName>
+                <ProcessValue>Server=ServerName;Database=VtiData;User Id=vtiuser;Password=vtiuser;Connect Timeout=5;</ProcessValue>
+                <ToolTip>Connection String to remote VtiData database containing tables dbo.UutRecords, dbo.UutRecordDetails, dbo.ParamChangeLog, and dbo.ManualCmdExecLog.</ToolTip>
+            </StringParameter>
+        ")]
+        public StringParameter RemoteConnectionString_VtiData
+        {
+            get
+            {
+                return ((StringParameter)this["RemoteConnectionString_VtiData"]);
+            }
+            set
+            {
+                this["RemoteConnectionString_VtiData"] = (StringParameter)value;
+            }
+        }
+        #endregion RemoteConnectionString_VtiData
+		
+ModeSettings.cs:
+
+        #region RemoteVtiDataConnectionEnable : BooleanParameter
+        [UserScopedSetting()]
+        [XmlElement("BooleanParameter")]
+        [DefaultSettingValue(@"
+            <BooleanParameter>
+                <DisplayName>Remote VtiData Connection Enable</DisplayName>
+                <ProcessValue>false</ProcessValue>
+                <ToolTip>Enables or disables the connection to the remote VtiData database containing tables dbo.UutRecords, dbo.UutRecordDetails, dbo.ParamChangeLog, and dbo.ManualCmdExecLog.</ToolTip>
+            </BooleanParameter>
+        ")]
+        public BooleanParameter RemoteVtiDataConnectionEnable
+        {
+            get
+            {
+                return ((BooleanParameter)this["RemoteVtiDataConnectionEnable"]);
+            }
+            set
+            {
+                this["RemoteVtiDataConnectionEnable"] = (BooleanParameter)value;
+            }
+        }
+        #endregion RemoteVtiDataConnectionEnable : BooleanParameter
+		
+Machine.cs -> InitializeLibrary():
+
+            SplashScreen.Message = "Initializing Library...";
+            if (Config.Mode.RemoteVtiDataConnectionEnable.ProcessValue)
+            {
+                VtiLib.Initialize<Machine, Config, ManualCommands, ModelSettings, IOSettings>
+                    (Machine.Instance, Config.Instance, Properties.Settings.Default.VtiDataConnectionString, Config.Control.RemoteConnectionString_VtiData.ProcessValue);
+            }
+            else
+            {
+                VtiLib.Initialize<Machine, Config, ManualCommands, ModelSettings, IOSettings>
+                    (Machine.Instance, Config.Instance, Properties.Settings.Default.VtiDataConnectionString);
+            }
+			
+Machine.cs -> InitializeDatabase():
+
+            SplashScreen.Message = "Initializing Local VtiData Database...";
+            if (!VtiLib.Data.CheckConnStatus())
+            {
+                string msg = $"Unable to connect to local VtiData database. Connection string is '{Properties.Settings.Default.VtiDataConnectionString}'.";
+                VtiEvent.Log.WriteError(msg);
+                MessageBox.Show(msg);
+            }
+            if (Config.Mode.RemoteVtiDataConnectionEnable.ProcessValue)
+            {
+                SplashScreen.Message = "Initializing Remote VtiData database...";
+                if (!VtiLib.Data2.CheckConnStatus2())
+                {
+                    string msg = $"Unable to connect to remote VtiData database. Connection string is '{Config.Control.RemoteConnectionString_VtiData.ProcessValue}'.";
+                    VtiEvent.Log.WriteError(msg);
+                    MessageBox.Show(msg);
+                    //disable the mode and re-initialize the library without the remote VtiData connection to avoid more remote database connection errors while using application
+                    Config.Mode.RemoteVtiDataConnectionEnable.ProcessValue = false;
+                    Config.Save();
+                    InitializeLibrary();
+                }
+            }
