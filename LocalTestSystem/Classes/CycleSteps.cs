@@ -30,7 +30,6 @@ namespace LocalTestSystem.Classes
     {
         // Cycle Steps
         public CycleStep ReadyForSequence,
-            ProcessControlCycleStep,
           Reset, ResetComplete,
           TestAborted, Idle,
           WaitForAcknowledge, WaitForModelSelection, ScanModelNumberOnPart, ScanSerialNumber,
